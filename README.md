@@ -1,205 +1,49 @@
-# PlantillaProyecto
-
-Este es el template oficial para los proyectos de la materia Proyecto 252. Sigue las instrucciones para configurar tu proyecto y sincronizarlo automáticamente con la galería de CETUS.
-
-## 📋 Estructura Requerida 
-
-Tu repositorio debe seguir esta estructura exacta:
-
-```
-proyecto-252/
-├── .github/
-│   └── workflows/
-│       └── publish.yml          ← GitHub Action (ya incluido)
-│
-├── video/
-│   └── demo.mp4                 ← Video de gameplay (max 2 min)
-│
-├── gallery/
-│   └── cover.png                ← Imagen de portada (720x1080)
-│
-├── screenshots/
-│   ├── screenshot1.png          ← Capturas del juego (mínimo 3)
-│   ├── screenshot2.png
-│   └── screenshot3.png
-│
-├── bin/
-│   └── JuegoProyecto.exe        ← Ejecutable del juego
-│
-├── assets/
-│   ├── textures/
-│   ├── sounds/
-│   └── ...                      ← Todos los recursos necesarios
-│
-├── README.md                    ← Este archivo (edítalo con tu proyecto)
-└── .gitignore
-```
-
-## 🚀 Cómo Usar Este Template
-
-### 1. Haz Fork de Este Repositorio
-
-Copia los archivos que te hagan falta o haz fork de este repositorio a tu cuenta de GitHub.
-
-### 2. Configura en CETUS
-
-1. Ve a [CETUS](https://cetus.logiasimbolica.com)
-2. Inicia sesión con tu cuenta
-3. Ve a **Proyectos** y entra a tu proyecto
-4. En la sección "Repositorio de GitHub", haz clic en **Configurar**
-5. Pega la URL de tu repositorio (por ejemplo: `https://github.com/tu-usuario/mijuego`)
-6. Guarda la configuración
-
-### 3. Organiza Tus Archivos
-
-Coloca tus archivos en las carpetas correspondientes siguiendo la estructura de arriba.
-
-**Requisitos importantes:**
-
-#### Video (`video/demo.mp4`)
-
-- Duración máxima: **2 minutos**
-- Formato: MP4
-- Contenido: Gameplay mostrando las características principales de tu juego
-- Resolución recomendada: 1280x720 o superior
-
-#### Portada (`gallery/cover.png`)
-
-- Dimensiones: **720x1080 pixels** (vertical)
-- Formato: PNG
-- Representa visualmente tu juego (puede ser logo + screenshot)
-
-#### Screenshots (`screenshots/*.png`)
-
-- Mínimo: **3 capturas**
-- Dimensiones: **1080x720 pixels** cada una
-- Formato: PNG
-- Muestra diferentes aspectos del juego
-
-#### Ejecutable (`bin/*.exe`)
-
-- Incluye el `.exe` principal de tu juego
-- Si necesitas DLLs adicionales, inclúyelas también
-
-#### Assets (`assets/`)
-
-- Todos los recursos que tu juego necesita para funcionar
-- Texturas, sonidos, música, modelos 3D, etc.
-- Organiza en subcarpetas
-
-#### README.md
-
-- Edita este archivo con la descripción de tu proyecto
-- Incluye: objetivo, controles, mecánicas, créditos
-
-### 4. Publica Tu Proyecto
-
-Cada vez que hagas **push a la rama `main`**, el GitHub Action se ejecutará automáticamente y:
-
-1. ✅ Empaquetará tu ejecutable y assets en un ZIP
-2. ✅ Creará un Release con versión automática
-3. ✅ Notificará a CETUS para actualizar la galería
-4. ✅ Tu proyecto aparecerá en https://cetus.logiasimbolica.com/galeria
-
-**No necesitas hacer nada más** - la sincronización es automática.
-
-## 🔄 Flujo de Trabajo
-
-```
-1. Desarrollas tu juego localmente
-2. Actualizas archivos en las carpetas correspondientes
-3. git add . && git commit -m "Actualización X"
-4. git push origin main
-5. GitHub Action se ejecuta automáticamente
-6. ✨ Tu proyecto se actualiza en la galería
-```
-
-## ⚠️ Validaciones
-
-El sistema validará automáticamente:
-
-- ✓ Repositorio configurado en CETUS
-- ✓ Estructura de carpetas correcta
-- ✓ Video existe y es accesible
-- ✓ Portada existe (cover.png)
-- ✓ Mínimo 3 screenshots
-- ✓ Ejecutable existe
-- ✓ README.md presente
-
-Si algo falla, recibirás un error en el log del GitHub Action.
-
-## 📊 Tracking de Progreso
-
-Cada commit que hagas se registrará en CETUS para evaluar:
-
-- Frecuencia de commits
-- Progreso a lo largo del tiempo
-- Contribuciones de cada integrante
-
-Asegúrate de hacer commits significativos con mensajes descriptivos.
-
-## 🆘 Problemas Comunes
-
-### El Action falla
-
-- Verifica que todas las carpetas existan
-- Revisa que los archivos tengan los nombres exactos
-- Asegúrate de que el repo sea público
-
-### No aparece en la galería
-
-- Confirma que registraste la URL en CETUS
-- Verifica que el push fue a la rama `main`
-- Revisa los logs del Action en GitHub
-
-### El ejecutable no se descarga
-
-- Asegúrate de que el Release se creó exitosamente
-- Verifica que el ZIP contiene bin/ y assets/
-
 ## 📝 Descripción del Proyecto
 
-**[Edita esta sección con la información de tu juego]**
+**PELEITAS** es un videojuego arcade de lucha en 2D desarrollado en C++ utilizando la librería SFML. El juego presenta combates rápidos e intensos entre cuatro personajes icónicos, implementando mecánicas de gravedad, colisiones precisas por hitboxes, un sistema de rondas competitivas y una Inteligencia Artificial desafiante para el modo de un solo jugador.
 
 ### 🎯 Objetivo del Juego
 
-Describe aquí el objetivo principal de tu juego.
+El objetivo principal es derrotar al oponente en un duelo a muerte al mejor de 3 rondas. Cada luchador comienza con una barra de vitalidad de **500 HP**. El jugador que logre reducir la vida de su rival a 0 o mantenga una mayor cantidad de vida cuando el temporizador de 60 segundos llegue a cero, se adjudicará la ronda. El primero en ganar 2 rondas será el campeón definitivo del combate.
 
 ### 🎮 Controles
 
-Lista los controles:
+El juego utiliza un esquema de control clásico de teclado para un manejo fluido y responsivo:
 
-- W/A/S/D: Movimiento
-- Space: Saltar
-- Mouse: Apuntar/Disparar
-- etc.
+- **A / D**: Moverse hacia la izquierda y derecha.
+- **W**: Saltar (solo disponible si el personaje se encuentra firmemente sobre el suelo).
+- **J**: Ejecutar un Golpe Débil (ataque rápido de corto alcance).
+- **K**: Ejecutar un Golpe Fuerte (ataque pesado con mayor rango).
+- **U**: Ejecutar un Golpe Cargado (ataque gran alcance 100 de daño).
+- **R**: Reiniciar la partida y volver al menú principal de selección (disponible una vez concluido el juego).
 
 ### ⚙️ Mecánicas
 
-Explica las mecánicas principales de tu juego.
+- **Física de Salto y Gravedad:** Implementación de un vector de velocidad vertical y una aceleración constante que simula de forma realista la gravedad del escenario al saltar.
+- **Rotación Automática y Eje Central (Pivot):** Los personajes ajustan su escala de espejo en tiempo real para mirar siempre hacia la posición del rival. Gracias a la configuración del origen en el centro del sprite (`setOrigin`), los luchadores giran sobre su propio eje sin sufrir teletransportaciones ni desfases visuales.
+- **Detección de Impactos mediante Cajas de Colisión (Hitboxes):** Los ataques generan una caja invisible temporal enfrente del personaje. Si esta intersecta (`intersects`) el cuerpo del enemigo, se calcula el daño de manera inmediata.
+- **Golpes Críticos Aleatorios:** Cada golpe conectado de forma exitosa tiene un **15% de probabilidad** de convertirse en un golpe crítico, duplicando el daño infligido de 10 a 20 HP y activando un efecto visual visualmente distinto.
+- **Inteligencia Artificial de Persecución:** La IA evalúa la distancia horizontal en píxeles contra el Jugador 1; si está lejos lo persigue de manera automática, y al romper la distancia de seguridad, ejecuta ráfagas de ataques combinando golpes débiles y fuertes mediante un sistema probabilístico.
 
 ### 🏆 Características
 
-- Feature 1
-- Feature 2
-- Feature 3
+- **Selector de Personajes Interactivo:** Menú dinámico que permite elegir tanto al peleador del Jugador 1 como al rival controlado por la IA entre 4 opciones disponibles.
+- **HUD e Interfaz en Tiempo Real:** Barra de vida doble (fondo de daño y barra verde de vitalidad que se encoge proporcionalmente por regla de tres), temporizador de cuenta regresiva y un marcador que muestra el estado de las rondas.
+- **Variedad de Escenarios y Banda Sonora Dinámica:** Al iniciar un combate, el juego selecciona de forma aleatoria uno de los 3 fondos disponibles (`fondo0.png`, `fondo1.png`, `fondo2.png`) y reproduce de forma sincronizada y en bucle su respectiva pista de música de batalla.
+- **Efectos Visuales de Impacto:** Ondas de choque circulares expansivas que aparecen en la coordenada exacta del impacto, cambiando a color rojo brillante si el ataque resulta ser un golpe crítico.
 
 ### 👥 Equipo
 
-- **Líder**: Nombre Completo (@usuario-github)
-- **Integrante 2**: Nombre Completo (@usuario-github)
-- **Integrante 3**: Nombre Completo (@usuario-github)
+* **Líder**: Juan Luis Hernandez Yturbe (@Yturbe7w7)
 
 ### 🛠️ Tecnologías
 
-- Motor/Framework: Unity/Godot/Unreal/etc.
-- Lenguaje: C#/C++/Python/etc.
-- Librerías adicionales: ...
+- **Motor/Framework**: SFML (Simple and Fast Multimedia Library) v2.6+
+- **Lenguaje**: C++ (Estándar C++17 o superior)
+- **Entorno de Compilación**: GCC / G++ (MinGW para Windows) ejecutado desde PowerShell.
 
 ### 📜 Créditos
 
-- Assets de terceros utilizados
-- Referencias o inspiraciones
-- Agradecimientos
-
----
+- **Diseño de Sprites**: Assets originales de personajes en formato PNG (diseños basados en los nombres clave de Rea, Subaru, Kazuma y Mio).
+- **Música y Audio**: Pistas en formato `.ogg` optimizadas para reproducción continua en SFML.
+- **Inspiración**: Clásicos de peleas arcade en 2D de la era de los 16-bits.
