@@ -3,12 +3,9 @@
 
 #include "Personaje.h"
 
-// ==========================================
-// PERSONAJE 1: GUERRERO AZUL (Controles: WASD)
-// ==========================================
+// JUGADOR 1: Se mueve con WASD
 class JugadorAzul : public Personaje {
 public:
-    // Pasa el nombre del archivo de imagen que guardes en assets/textures/
     JugadorAzul(sf::Vector2f pos) : Personaje("azul.png", pos) {}
 
     void manejarEntrada() override {
@@ -22,9 +19,7 @@ public:
     }
 };
 
-// ==========================================
-// PERSONAJE 2: GUERRERO ROJO (Controles: Flechas)
-// ==========================================
+// JUGADOR 2: Se mueve con las Flechas de Dirección
 class JugadorRojo : public Personaje {
 public:
     JugadorRojo(sf::Vector2f pos) : Personaje("rojo.png", pos) {}

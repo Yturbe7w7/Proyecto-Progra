@@ -2,10 +2,11 @@
 #define PERSONAJE_H
 
 #include <SFML/Graphics.hpp>
+#include <string>
 
 class Personaje {
 protected:
-    sf::Sprite sprite;          
+    sf::Sprite sprite;
     sf::Texture textura;
     sf::Vector2f velocidad{0.0f, 0.0f};
     
@@ -15,10 +16,14 @@ protected:
     bool enElSuelo = false;
 
 public:
-    Personaje(const std::string& rutaTextura, sf::Vector2f posicionInicial);
+    // El constructor recibirá el nombre de la imagen y dónde aparece
+    Personaje(const std::string& nombreArchivo, sf::Vector2f posicionInicial);
     virtual ~Personaje() = default;
 
-    virtual void manejarEntrada() = 0; // Cada personaje implementa sus teclas
+    // Método que cada personaje resolverá con sus propias teclas
+    virtual void manejarEntrada() = 0;
+    
+    // Lógica física y dibujado
     void actualizar(float alturaSuelo);
     void dibujar(sf::RenderWindow& ventana);
 };
